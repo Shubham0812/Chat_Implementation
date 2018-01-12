@@ -192,19 +192,10 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(this, "Sign in canceled", Toast.LENGTH_SHORT).show();
                 finish();
             } else if (requestCode == RC_PHOTO_PICKER && resultCode == RESULT_OK) {
-                Toast.makeText(this,"Tring Here",Toast.LENGTH_SHORT);
+                Toast.makeText(this,"Tring Here",Toast.LENGTH_SHORT).show();
                 Uri selectedImageUri = data.getData();
                 StorageReference photoRef = mStorageReference.child(selectedImageUri.getLastPathSegment());
-                Toast.makeText(this,"Here",Toast.LENGTH_SHORT);
-                photoRef.putFile(selectedImageUri)
-                        .addOnSuccessListener(this, new OnSuccessListener<UploadTask.TaskSnapshot>() {
-                            public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                                Uri downloadUrl = taskSnapshot.getDownloadUrl();
-                                // Set the download URL to the message box, so that the user can send it to the database
-                                FriendlyMessage friendlyMessage = new FriendlyMessage(null, mUsername, downloadUrl.toString());
-                                mDatabaseReference.push().setValue(friendlyMessage);
-                            }
-                        });
+
             }
         }
     }
