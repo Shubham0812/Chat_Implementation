@@ -1,3 +1,3 @@
 # Chat Implementation  for Touristo
 
-[Groups to be added]
+**GROUPS FUNCTIONALITY TO BE ADDED**
